@@ -26,6 +26,8 @@ jobs:
     # Make sure the snap is installable
     - run: |
         sudo snap install --dangerous ${{ steps.build-snap.outputs.snap }}
+    - run: |
+        process-sarif.sarif-load-test --version
     - uses: actions/upload-artifact@v3
       with:
         name: process-sarif
